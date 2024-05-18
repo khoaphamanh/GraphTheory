@@ -29,7 +29,7 @@ num_nodes = 10
 # Create a random directed graph with the specified number of nodes
 random_digraph = create_random_directed_graph(num_nodes)
 edge_labels = nx.get_edge_attributes(random_digraph, 'weight')
-# print("edge_labels:", edge_labels)
+print("edge_labels:", edge_labels)
 
 def uniform_cost_search (start:str,edges_labels:dict):
     visited = {}
