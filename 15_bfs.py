@@ -1,13 +1,34 @@
 # Reference https://www.youtube.com/watch?v=oDqjPvD54Ss&t=118s
 import networkx as nx 
 import matplotlib.pyplot as plt
+import random
+import string
+random.seed(9090)
 
-edges = [
-    ("A", "B"), ("B", "C"), ("C", "A"),
-    ("C", "D"), ("D", "E"), ("E", "C"),
-    ("F", "F"),
-    ("G", "H"), ("H", "I")
-]
+def create_random_directed_graph(num_nodes):
+    # Create a directed graph
+    G = nx.DiGraph()
+    
+    # Add nodes
+    nodes = list(string.ascii_uppercase[:num_nodes])
+    G.add_nodes_from(nodes)
+    
+    # Add random edges
+    for i in nodes:
+        for j in nodes:
+            if i != j:  # avoid self-loops for now
+                if random.random() < 0.3:  # probability of 30% to create an edge
+                    G.add_edge(i, j)
+                    
+    return G
+
+# Number of nodes
+num_nodes = 10
+
+# Create a random directed graph with the specified number of nodes
+random_digraph = create_random_directed_graph(num_nodes)
+edges = random_digraph.edges()
+print("edges:", edges)
 
 def breadth_first_search(start: str, edges: list):
     visited = []
@@ -25,7 +46,7 @@ def breadth_first_search(start: str, edges: list):
 
     return visited
 
-start = "A"
+start = "C"
 print("start:", start)
 visited = breadth_first_search(start=start, edges=edges)
 print("Visited:", visited)
