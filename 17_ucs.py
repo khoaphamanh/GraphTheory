@@ -17,8 +17,8 @@ def create_random_directed_graph(num_nodes):
     for i in nodes:
         for j in nodes:
             if i != j:  # avoid self-loops for now
-                if random.random() < 0.2:  # probability of 30% to create an edge
-                    weight = random.randint(1, 10)  # Random weight between 1 and 10
+                if random.random() < 0.15:  # probability of 30% to create an edge
+                    weight = random.randint(1, 100)  # Random weight between 1 and 10
                     G.add_edge(i, j, weight=weight)
                     
     return G
@@ -59,7 +59,7 @@ def uniform_cost_search (start:str,edges_labels:dict):
 
     return visited
 
-start = "C"
+start = "B"
 end = "F"
 print("start:", start)
 visited = uniform_cost_search(start=start,edges_labels=edge_labels)
@@ -68,7 +68,7 @@ shortes_path = [(i,j) for i,j in visited.items() if start in i and end in i]
 print("shortes_path from {} to {}: {} cost {}".format(start,end,shortes_path[0][0],shortes_path[0][1]))
 
 #check it with networkx
-path = nx.shortest_path(random_digraph,start,end)
+path = nx.shortest_path(random_digraph,start,end,weight="weight")
 print("check with networkx")
 print("path:", path)
 
