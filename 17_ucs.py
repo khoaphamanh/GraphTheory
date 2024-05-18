@@ -18,7 +18,7 @@ def create_random_directed_graph(num_nodes):
         for j in nodes:
             if i != j:  # avoid self-loops for now
                 if random.random() < 0.15:  # probability of 30% to create an edge
-                    weight = random.randint(1, 100)  # Random weight between 1 and 10
+                    weight = random.randint(1, 10)  # Random weight between 1 and 10
                     G.add_edge(i, j, weight=weight)
                     
     return G
@@ -50,7 +50,7 @@ def uniform_cost_search (start:str,edges_labels:dict):
             visited[path_to_visited] = cost_node_to_visited
             
             new_path_dict = {}
-            for (u,v), c in edge_labels.items():
+            for (u,v), c in edges_labels.items():
                 if u == node_to_visited and v != visited_nodes:
                     new_path_dict[(path_to_visited+v)] = cost_node_to_visited + c
             
