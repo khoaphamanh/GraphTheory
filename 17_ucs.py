@@ -35,6 +35,7 @@ edge_labels = nx.get_edge_attributes(random_digraph, "weight")
 print("edge_labels:", edge_labels)
 
 
+# uniform cost search based on cost of each path
 def uniform_cost_search(start: str, edges_labels: dict):
     visited = {}
     frontier = {start: 0}
