@@ -30,6 +30,8 @@ random_digraph = create_random_directed_graph(num_nodes)
 edges = random_digraph.edges()
 print("edges:", edges)
 
+#BFS based on FIFO(last in first out)
+#out --> [stack] <-- in
 def breadth_first_search(start: str, edges: list):
     visited = []
     queue = [start]  # Initialize the queue with the start node
