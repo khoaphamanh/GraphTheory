@@ -31,7 +31,7 @@ edges = random_digraph.edges()
 print("edges:", edges)
 
 #BFS based on FIFO(last in first out)
-#out <-- [stack] <-- in
+#out <-- [queue] <-- in
 def breadth_first_search(start: str, edges: list):
     visited = []
     queue = [start]  # Initialize the queue with the start node
