@@ -84,6 +84,9 @@ path = nx.shortest_path(random_digraph, start, end, weight="weight")
 print("check with networkx")
 print("path:", path)
 
+# Draw the graph
+pos = nx.circular_layout(random_digraph)
+nx.draw(random_digraph, pos, with_labels=True)
 
 # Draw edge labels
 nx.draw_networkx_edge_labels(random_digraph, pos, edge_labels=edge_labels)
