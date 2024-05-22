@@ -30,6 +30,9 @@ random_digraph = create_random_directed_graph(num_nodes)
 edges = random_digraph.edges()
 print("edges:", edges)
 
+#DFS based on LIFO(last in first out)
+#in --> [stack]
+#out <--
 def depth_first_search(start: str, edges: list):
     visited = []
     stack = [start]  
